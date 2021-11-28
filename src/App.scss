@@ -1,0 +1,69 @@
+$textColor: #000;
+$elemsBgColor: #fff;
+$borderColor: rgb(219, 219, 219);
+$bgColor: rgb(250, 250, 250);
+$innerW: 935px;
+$contW: 600px;
+$sideW: $innerW - $contW;
+$marg: 30px;
+
+.App{
+  h1,h2,h3,h4,h5,h6,p{
+    margin:0;
+    padding:0;
+  }
+
+  background: $bgColor;
+
+  .ant-layout{
+    background: none;
+  }
+
+  .ant-layout-header{
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+    color: $textColor;
+    background: $elemsBgColor;
+    border: 1px solid $borderColor;
+  }
+
+  .inner-layout{
+    width: $innerW;
+    max-width: $innerW;
+    margin: ($marg + 64px) calc((100% - #{$innerW})/2) 0;
+
+    .ant-layout-content{
+      width: $contW;
+      max-width: $contW;
+    }
+    .ant-layout-sider{
+      color: $textColor;
+      background: none;
+      position: relative;
+      padding: $marg 0 $marg $marg;
+      flex: 0 0 $sideW !important;
+      min-width: $sideW !important;
+      width: $sideW !important;
+      max-width: $sideW !important;
+      .sider-content{
+        position: fixed;
+      }
+    }
+  }
+
+  @media screen and (max-width: $innerW){
+    .ant-layout-sider{
+      display: none;
+    }
+
+    .inner-layout{
+      margin: 0 calc((100% - $contW)/2);
+    }
+
+    .ant-layout-content{
+      width: $contW;
+      max-width: $contW;
+    }
+  }
+}

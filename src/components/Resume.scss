@@ -1,0 +1,23 @@
+.resume{
+  display: flex;
+  text-align: left;
+  height: min-content;
+  .ant-avatar{
+    margin-right: 20px;
+  }
+  .resume-data{
+    .resume-data-cont{
+      display: flex;
+      height: 100%;
+      flex-direction: column;
+      justify-content: center;
+
+      p.nickname{
+        font-weight: 600;
+      }
+      p.fullname{
+        color: #888;
+      }
+    }
+  }
+}

@@ -1,0 +1,25 @@
+$textColor: #000;
+$elemsBgColor: #fff;
+$borderColor: rgb(219, 219, 219);
+
+.feed-post{
+  width: 100%;
+  min-height: 200px;
+  height: max-content;
+  max-height: 100vh;
+  color: $textColor;
+  background: $elemsBgColor;
+  border: 1px solid $borderColor;
+
+  .resume{
+    margin: 10px;
+  }
+
+  & + .feed-post{
+    margin-top: 10px;
+  }
+
+  .post-photo{
+    width: 100%;
+  }
+}

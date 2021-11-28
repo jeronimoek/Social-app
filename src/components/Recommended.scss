@@ -1,0 +1,13 @@
+.recom{
+  margin-top: 20px;
+  h4{
+    color: #888;
+    margin-bottom: 15px;
+  }
+  .resume{
+    margin-left: 5px;
+  }
+  .resume+.resume{
+    margin-top: 15px;
+  }
+}
