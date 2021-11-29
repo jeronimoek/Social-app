@@ -3,11 +3,15 @@ import FeedPost from './FeedPost';
 import getUsers from '../utils/getUsers';
 import getPhotos from '../utils/getPhotos';
 import handleViewport from 'react-in-viewport';
+import { LoadingOutlined } from '@ant-design/icons';
+import './Feed.scss'
 
 function Feed(props) {
+  const [loading, setLoading] = useState(false)
   const [posts, setPosts] = useState([])
 
   const fetchData = async () => {
+    setLoading(true)
     const newPosts = []
     const usersRawData = await getUsers(5)
     const photosRawData = await getPhotos(5)
@@ -30,20 +34,29 @@ function Feed(props) {
       )
     }
     setPosts([...posts, ...newPosts])
+    setLoading(false)
   }
 
   useEffect(()=>{
     fetchData()
   }, [])
   
-  const ViewportDiv = handleViewport((props) => <div ref={props.forwardedRef} style={{height:1}}/>)
-
+  const loadingIcon = <LoadingOutlined style={{ fontSize: 40, color: "#ccc" }} spin/>;
+  const SpinDiv = (props) => 
+    <div ref={props.forwardedRef} className="spinDiv">
+      <div className="spinCont">
+        {/*<h3>LOADING...</h3>*/}
+        {loadingIcon}
+      </div>
+    </div>
+  
+  const ViewportDiv = handleViewport(SpinDiv)
   return (
-    <div>
+    <div style={{position: "relative"}}>
       {posts}
       <ViewportDiv onEnterViewport={() => {
-        if(posts[0]){
-          console.log("fetching");
+        if(posts[0] && loading===false){
+          //console.log("fetching");
           fetchData()
         }
       }}/>

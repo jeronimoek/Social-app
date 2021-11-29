@@ -58,7 +58,7 @@ $marg: 30px;
     }
 
     .inner-layout{
-      margin: 0 calc((100% - $contW)/2);
+      margin: 0 calc((100% - #{$contW})/2);
     }
 
     .ant-layout-content{

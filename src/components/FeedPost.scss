@@ -1,6 +1,7 @@
 $textColor: #000;
 $elemsBgColor: #fff;
 $borderColor: rgb(219, 219, 219);
+$textSpacing: 15px;
 
 .feed-post{
   width: 100%;
@@ -10,16 +11,43 @@ $borderColor: rgb(219, 219, 219);
   color: $textColor;
   background: $elemsBgColor;
   border: 1px solid $borderColor;
+  border-radius: 5px;
+  overflow: hidden;
 
   .resume{
-    margin: 10px;
+    margin: $textSpacing;
+  }
+  .post-photo-cont{
+    width: 100%;
+    height: min-content;
+    .post-photo{
+      width: 100%;
+    }
+  }
+
+  .actions{
+    display: flex;
+    padding: 0 $textSpacing;
+    margin: $textSpacing 0;
+    .action{
+      font-size: 25px;
+
+      & + .action{
+        margin-left: 20px;
+      }
+    }
+    .action-save{
+      margin-left: auto !important;
+    }
+  }
+  
+  .likes-count{
+    font-weight: 600;
+    padding: 0 $textSpacing;
+    margin: $textSpacing 0;
   }
 
   & + .feed-post{
-    margin-top: 10px;
-  }
-
-  .post-photo{
-    width: 100%;
+    margin-top: $textSpacing*2;
   }
 }
